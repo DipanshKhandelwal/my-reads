@@ -14,7 +14,7 @@ class Search extends Component {
     this.setState({ query })
     BooksAPI.search(query.trim(), 50)
       .then((books) => {
-        if(books.length > 0) this.setState({ queryBooks: books })
+        if(books && books.length > 0) this.setState({ queryBooks: books })
       })
   }
 
@@ -43,17 +43,24 @@ class Search extends Component {
       <div className="search-books-results">
         {
           this.state.queryBooks.length > 0 ?
+          <div>
+            <h2>
+              {this.state.queryBooks.length} books returned !!
+            </h2>
             <ol className="books-grid">
             {
-              this.state.queryBooks.map((book) => 
-                <Book
-                  key={book.id}
-                  book={book}
-                  changeShelf={this.props.changeShelf}
-                />
+              this.state.queryBooks.map((book) =>
+                <li>
+                  <Book
+                    key={book.id}
+                    book={book}
+                    changeShelf={this.props.changeShelf}
+                  />
+                </li>
               )
             }
             </ol>
+          </div>
             :
             <h2>
               No Books returned !!
