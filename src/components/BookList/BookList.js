@@ -1,5 +1,4 @@
 import React from 'react'
-import Book from '../Book/Book'
 import BookShelf from '../BookShelf/BookShelf';
 
 const BookList = (props) => {
@@ -14,12 +13,16 @@ const BookList = (props) => {
         <div className="list-books-content">
         <div>
         {
-            shelves.map((shelf) => 
+            shelves.map((shelf) => {
+                let typeBooks = props.books.filter((book) => book.shelf === shelf.type)
+                return(
                 <BookShelf
+                    key={shelf.type}
                     title={shelf.title}
-                    books={props.books}
-                />
-            )
+                    books={typeBooks}
+                    changeShelf={props.changeShelf}
+                />)
+            })
         }
         </div>
         </div>

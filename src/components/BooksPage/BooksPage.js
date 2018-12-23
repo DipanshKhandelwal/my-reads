@@ -9,6 +9,7 @@ const BooksPage = (props) => {
             <h1>My Reads</h1>
             </div>
             <BookList
+                changeShelf={props.changeShelf}
                 books={props.books}
             />
             <div className="open-search">

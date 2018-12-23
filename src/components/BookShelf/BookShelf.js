@@ -11,9 +11,9 @@ const BookShelf = (props) => {
                 props.books.map((book) => (
                     <li>
                         <Book
-                            title={book.title}
-                            authors={book.authors}
-                            url={book.url}
+                            key={book.id}
+                            book={book}
+                            changeShelf={props.changeShelf}
                         />
                     </li>
                 ))
