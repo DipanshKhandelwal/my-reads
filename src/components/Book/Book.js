@@ -1,12 +1,24 @@
 import React from "react";
 import ShelfChanger from "../ShelfChanger/ShelfChanger";
+import emptyCover from "../../images/empty-cover.png";
 
 const Book = (props) => {
+
+    let image = props.book.imageLinks ?
+                    props.book.imageLinks.thumbnail ?
+                        props.book.imageLinks.thumbnail
+                        :
+                        props.book.imageLinks.smallThumbnail ?
+                            props.book.imageLinks.smallThumbnail
+                            :
+                            emptyCover
+                    :
+                    emptyCover
 
     return (
         <div className="book">
             <div className="book-top">
-                <div className="book-cover" style={{ width: 128, height: 188, backgroundImage: `url(${props.book.imageLinks.thumbnail})` }} />
+                <div className="book-cover" style={{ width: 128, height: 188, backgroundImage: `url(${image})` }} />
                 <ShelfChanger
                     changeShelf={props.changeShelf}
                     value={props.book.shelf}
