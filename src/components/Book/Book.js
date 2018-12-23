@@ -15,20 +15,22 @@ const Book = (props) => {
                     :
                     emptyCover
 
+    let { book, changeShelf } = props
+
     return (
         <div className="book">
             <div className="book-top">
                 <div className="book-cover" style={{ width: 128, height: 188, backgroundImage: `url(${image})` }} />
                 <ShelfChanger
                     changeShelf={(value) => {
-                        props.changeShelf(props.book, value)
+                        changeShelf(book, value)
                     }}
-                    value={props.book.shelf}
+                    value={book.shelf}
                 />
             </div>
-            <div className="book-title">{props.book.title}</div>
+            <div className="book-title">{book.title}</div>
             {
-                props.book.authors && props.book.authors.map((author) => 
+                book.authors && book.authors.map((author) => 
                     <div className="book-authors">
                         {author}
                     </div>

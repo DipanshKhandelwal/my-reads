@@ -9,6 +9,8 @@ const BookList = (props) => {
         { type: 'read', title: 'Read' }
       ];
 
+		let { changeShelf } = props
+    
     return(
         <div className="list-books-content">
         <div>
@@ -20,7 +22,7 @@ const BookList = (props) => {
                     key={shelf.type}
                     title={shelf.title}
                     books={typeBooks}
-                    changeShelf={props.changeShelf}
+                    changeShelf={changeShelf}
                 />)
             })
         }
