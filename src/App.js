@@ -3,14 +3,14 @@ import React from 'react'
 import './App.css'
 import { Route } from "react-router-dom";
 import Search from './Search/Search'
-import BookList from './BookList/BookList'
+import BooksPage from './BooksPage/BooksPage'
 
 class BooksApp extends React.Component {
   render() {
     return (
       <div className="app">
         <Route exact path='/' render={() => (
-          <BookList />
+          <BooksPage />
         )} />
         <Route path='/search' render={() => (
           <Search />
