@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import Book from '../Book/Book'
 
 const BookList = (props) => {
@@ -82,7 +83,9 @@ const BookList = (props) => {
             </div>
             </div>
             <div className="open-search">
-            <button onClick={() => this.setState({ showSearchPage: true })}>Add a book</button>
+                <Link to='/search' >
+                    <button>Add a book</button>
+                </Link>
             </div>
         </div>
     )
