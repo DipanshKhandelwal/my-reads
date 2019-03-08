@@ -26,7 +26,15 @@ class Search extends Component {
   render() {
 
     let { query, queryBooks } = this.state
-    let { changeShelf } = this.props
+    let { changeShelf, books } = this.props
+
+    books.map((book) => {
+      queryBooks.map((queryBook) => {
+        if(book.id === queryBook.id) {
+          queryBook["shelf"] = book["shelf"]
+        }
+      })
+    })
 
     return(
       <div className="search-books">
