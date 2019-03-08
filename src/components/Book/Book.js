@@ -30,8 +30,8 @@ const Book = (props) => {
             </div>
             <div className="book-title">{book.title}</div>
             {
-                book.authors && book.authors.map((author) => 
-                    <div className="book-authors">
+                book.authors && book.authors.map((author) =>
+                    <div className="book-authors" key={author} >
                         {author}
                     </div>
                 )

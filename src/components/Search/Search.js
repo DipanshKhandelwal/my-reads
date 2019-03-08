@@ -53,14 +53,15 @@ class Search extends Component {
             </h2>
             <ol className="books-grid">
             {
-              queryBooks.map((book) =>
-                <li>
-                  <Book
-                    key={book.id}
-                    book={book}
-                    changeShelf={changeShelf}
-                  />
-                </li>
+              queryBooks.map((book) =>(
+                    <li key={book.id} >
+                      <Book
+                        key={book.id}
+                        book={book}
+                        changeShelf={changeShelf}
+                      />
+                    </li>
+                  )
               )
             }
             </ol>
